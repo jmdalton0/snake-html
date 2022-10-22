@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+    <script src="./js/main.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Snake</h1>
+    </header>
+    
+    <main>
+        <div id="screen">
+            <div id="menu" class="message hide">
+                <button id="start" class="btn" onclick="start()">START</button>
+            </div>
+            <div id="game-over" class="message hide">
+                <h2>GAME OVER</h2>
+                <h3>Your Score: <span id="score"></span></h3>
+                <button id="next" class="btn" onclick="next()">NEXT</button>
+            </div>
+            <div id="game" class="hide">
+                <div id="row-1" class="row">
+                    <div id="col-1" class="col"></div>
+                    <div id="col-2" class="col"></div>
+                    <div id="col-3" class="col"></div>
+                    <div id="col-4" class="col"></div>
+                    <div id="col-5" class="col"></div>
+                    <div id="col-6" class="col"></div>
+                    <div id="col-7" class="col"></div>
+                    <div id="col-8" class="col"></div>
+                    <div id="col-9" class="col"></div>
+                    <div id="col-10" class="col"></div>
+                    <div id="col-11" class="col"></div>
+                    <div id="col-12" class="col"></div>
+                    <div id="col-13" class="col"></div>
+                    <div id="col-14" class="col"></div>
+                    <div id="col-15" class="col"></div>
+                    <div id="col-16" class="col"></div>
+                </div>
+                <div id="row-2" class="row">
+                    <div id="col-1" class="col"></div>
+                    <div id="col-2" class="col"></div>
+                    <div id="col-3" class="col"></div>
+                    <div id="col-4" class="col"></div>
+                    <div id="col-5" class="col"></div>
+                    <div id="col-6" class="col"></div>
+                    <div id="col-7" class="col"></div>
+                    <div id="col-8" class="col"></div>
+                    <div id="col-9" class="col"></div>
+                    <div id="col-10" class="col"></div>
+                    <div id="col-11" class="col"></div>
+                    <div id="col-12" class="col"></div>
+                    <div id="col-13" class="col"></div>
+                    <div id="col-14" class="col"></div>
+                    <div id="col-15" class="col"></div>
+                    <div id="col-16" class="col"></div>
+                </div>
+                <div id="row-3" class="row">
+                    <div id="col-1" class="col"></div>
+                    <div id="col-2" class="col"></div>
+                    <div id="col-3" class="col"></div>
+                    <div id="col-4" class="col"></div>
+                    <div id="col-5" class="col"></div>
+                    <div id="col-6" class="col"></div>
+                    <div id="col-7" class="col"></div>
+                    <div id="col-8" class="col"></div>
+                    <div id="col-9" class="col"></div>
+                    <div id="col-10" class="col"></div>
+                    <div id="col-11" class="col"></div>
+                    <div id="col-12" class="col"></div>
+                    <div id="col-13" class="col"></div>
+                    <div id="col-14" class="col"></div>
+                    <div id="col-15" class="col"></div>
+                    <div id="col-16" class="col"></div>
+                </div>
+                <div id="row-4" class="row">
+                    <div id="col-1" class="col"></div>
+                    <div id="col-2" class="col"></div>
+                    <div id="col-3" class="col"></div>
+                    <div id="col-4" class="col"></div>
+                    <div id="col-5" class="col"></div>
+                    <div id="col-6" class="col"></div>
+                    <div id="col-7" class="col"></div>
+                    <div id="col-8" class="col"></div>
+                    <div id="col-9" class="col"></div>
+                    <div id="col-10" class="col"></div>
+                    <div id="col-11" class="col"></div>
+                    <div id="col-12" class="col"></div>
+                    <div id="col-13" class="col"></div>
+                    <div id="col-14" class="col"></div>
+                    <div id="col-15" class="col"></div>
+                    <div id="col-16" class="col"></div>
+                </div>
+                <div id="row-5" class="row">
+                    <div id="col-1" class="col"></div>
+                    <div id="col-2" class="col"></div>
+                    <div id="col-3" class="col"></div>
+                    <div id="col-4" class="col"></div>
+                    <div id="col-5" class="col"></div>
+                    <div id="col-6" class="col"></div>
+                    <div id="col-7" class="col"></div>
+                    <div id="col-8" class="col"></div>
+                    <div id="col-9" class="col"></div>
+                    <div id="col-10" class="col"></div>
+                    <div id="col-11" class="col"></div>
+                    <div id="col-12" class="col"></div>
+                    <div id="col-13" class="col"></div>
+                    <div id="col-14" class="col"></div>
+                    <div id="col-15" class="col"></div>
+                    <div id="col-16" class="col"></div>
+                </div>
+                <div id="row-6" class="row">
+                    <div id="col-1" class="col"></div>
+                    <div id="col-2" class="col"></div>
+                    <div id="col-3" class="col"></div>
+                    <div id="col-4" class="col"></div>
+                    <div id="col-5" class="col"></div>
+                    <div id="col-6" class="col"></div>
+                    <div id="col-7" class="col"></div>
+                    <div id="col-8" class="col"></div>
+                    <div id="col-9" class="col"></div>
+                    <div id="col-10" class="col"></div>
+                    <div id="col-11" class="col"></div>
+                    <div id="col-12" class="col"></div>
+                    <div id="col-13" class="col"></div>
+                    <div id="col-14" class="col"></div>
+                    <div id="col-15" class="col"></div>
+                    <div id="col-16" class="col"></div>
+                </div>
+                <div id="row-7" class="row">
+                    <div id="col-1" class="col"></div>
+                    <div id="col-2" class="col"></div>
+                    <div id="col-3" class="col"></div>
+                    <div id="col-4" class="col"></div>
+                    <div id="col-5" class="col"></div>
+                    <div id="col-6" class="col"></div>
+                    <div id="col-7" class="col"></div>
+                    <div id="col-8" class="col"></div>
+                    <div id="col-9" class="col"></div>
+                    <div id="col-10" class="col"></div>
+                    <div id="col-11" class="col"></div>
+                    <div id="col-12" class="col"></div>
+                    <div id="col-13" class="col"></div>
+                    <div id="col-14" class="col"></div>
+                    <div id="col-15" class="col"></div>
+                    <div id="col-16" class="col"></div>
+                </div>
+                <div id="row-8" class="row">
+                    <div id="col-1" class="col"></div>
+                    <div id="col-2" class="col"></div>
+                    <div id="col-3" class="col"></div>
+                    <div id="col-4" class="col"></div>
+                    <div id="col-5" class="col"></div>
+                    <div id="col-6" class="col"></div>
+                    <div id="col-7" class="col"></div>
+                    <div id="col-8" class="col"></div>
+                    <div id="col-9" class="col"></div>
+                    <div id="col-10" class="col"></div>
+                    <div id="col-11" class="col"></div>
+                    <div id="col-12" class="col"></div>
+                    <div id="col-13" class="col"></div>
+                    <div id="col-14" class="col"></div>
+                    <div id="col-15" class="col"></div>
+                    <div id="col-16" class="col"></div>
+                </div>
+                <div id="row-9" class="row">
+                    <div id="col-1" class="col"></div>
+                    <div id="col-2" class="col"></div>
+                    <div id="col-3" class="col"></div>
+                    <div id="col-4" class="col"></div>
+                    <div id="col-5" class="col"></div>
+                    <div id="col-6" class="col"></div>
+                    <div id="col-7" class="col"></div>
+                    <div id="col-8" class="col"></div>
+                    <div id="col-9" class="col"></div>
+                    <div id="col-10" class="col"></div>
+                    <div id="col-11" class="col"></div>
+                    <div id="col-12" class="col"></div>
+                    <div id="col-13" class="col"></div>
+                    <div id="col-14" class="col"></div>
+                    <div id="col-15" class="col"></div>
+                    <div id="col-16" class="col"></div>
+                </div>
+                <div id="row-10" class="row">
+                    <div id="col-1" class="col"></div>
+                    <div id="col-2" class="col"></div>
+                    <div id="col-3" class="col"></div>
+                    <div id="col-4" class="col"></div>
+                    <div id="col-5" class="col"></div>
+                    <div id="col-6" class="col"></div>
+                    <div id="col-7" class="col"></div>
+                    <div id="col-8" class="col"></div>
+                    <div id="col-9" class="col"></div>
+                    <div id="col-10" class="col"></div>
+                    <div id="col-11" class="col"></div>
+                    <div id="col-12" class="col"></div>
+                    <div id="col-13" class="col"></div>
+                    <div id="col-14" class="col"></div>
+                    <div id="col-15" class="col"></div>
+                    <div id="col-16" class="col"></div>
+                </div>
+                <div id="row-11" class="row">
+                    <div id="col-1" class="col"></div>
+                    <div id="col-2" class="col"></div>
+                    <div id="col-3" class="col"></div>
+                    <div id="col-4" class="col"></div>
+                    <div id="col-5" class="col"></div>
+                    <div id="col-6" class="col"></div>
+                    <div id="col-7" class="col"></div>
+                    <div id="col-8" class="col"></div>
+                    <div id="col-9" class="col"></div>
+                    <div id="col-10" class="col"></div>
+                    <div id="col-11" class="col"></div>
+                    <div id="col-12" class="col"></div>
+                    <div id="col-13" class="col"></div>
+                    <div id="col-14" class="col"></div>
+                    <div id="col-15" class="col"></div>
+                    <div id="col-16" class="col"></div>
+                </div>
+                <div id="row-12" class="row">
+                    <div id="col-1" class="col"></div>
+                    <div id="col-2" class="col"></div>
+                    <div id="col-3" class="col"></div>
+                    <div id="col-4" class="col"></div>
+                    <div id="col-5" class="col"></div>
+                    <div id="col-6" class="col"></div>
+                    <div id="col-7" class="col"></div>
+                    <div id="col-8" class="col"></div>
+                    <div id="col-9" class="col"></div>
+                    <div id="col-10" class="col"></div>
+                    <div id="col-11" class="col"></div>
+                    <div id="col-12" class="col"></div>
+                    <div id="col-13" class="col"></div>
+                    <div id="col-14" class="col"></div>
+                    <div id="col-15" class="col"></div>
+                    <div id="col-16" class="col"></div>
+                </div>
+                <div id="row-13" class="row">
+                    <div id="col-1" class="col"></div>
+                    <div id="col-2" class="col"></div>
+                    <div id="col-3" class="col"></div>
+                    <div id="col-4" class="col"></div>
+                    <div id="col-5" class="col"></div>
+                    <div id="col-6" class="col"></div>
+                    <div id="col-7" class="col"></div>
+                    <div id="col-8" class="col"></div>
+                    <div id="col-9" class="col"></div>
+                    <div id="col-10" class="col"></div>
+                    <div id="col-11" class="col"></div>
+                    <div id="col-12" class="col"></div>
+                    <div id="col-13" class="col"></div>
+                    <div id="col-14" class="col"></div>
+                    <div id="col-15" class="col"></div>
+                    <div id="col-16" class="col"></div>
+                </div>
+                <div id="row-14" class="row">
+                    <div id="col-1" class="col"></div>
+                    <div id="col-2" class="col"></div>
+                    <div id="col-3" class="col"></div>
+                    <div id="col-4" class="col"></div>
+                    <div id="col-5" class="col"></div>
+                    <div id="col-6" class="col"></div>
+                    <div id="col-7" class="col"></div>
+                    <div id="col-8" class="col"></div>
+                    <div id="col-9" class="col"></div>
+                    <div id="col-10" class="col"></div>
+                    <div id="col-11" class="col"></div>
+                    <div id="col-12" class="col"></div>
+                    <div id="col-13" class="col"></div>
+                    <div id="col-14" class="col"></div>
+                    <div id="col-15" class="col"></div>
+                    <div id="col-16" class="col"></div>
+                </div>
+                <div id="row-15" class="row">
+                    <div id="col-1" class="col"></div>
+                    <div id="col-2" class="col"></div>
+                    <div id="col-3" class="col"></div>
+                    <div id="col-4" class="col"></div>
+                    <div id="col-5" class="col"></div>
+                    <div id="col-6" class="col"></div>
+                    <div id="col-7" class="col"></div>
+                    <div id="col-8" class="col"></div>
+                    <div id="col-9" class="col"></div>
+                    <div id="col-10" class="col"></div>
+                    <div id="col-11" class="col"></div>
+                    <div id="col-12" class="col"></div>
+                    <div id="col-13" class="col"></div>
+                    <div id="col-14" class="col"></div>
+                    <div id="col-15" class="col"></div>
+                    <div id="col-16" class="col"></div>
+                </div>
+                <div id="row-16" class="row">
+                    <div id="col-1" class="col"></div>
+                    <div id="col-2" class="col"></div>
+                    <div id="col-3" class="col"></div>
+                    <div id="col-4" class="col"></div>
+                    <div id="col-5" class="col"></div>
+                    <div id="col-6" class="col"></div>
+                    <div id="col-7" class="col"></div>
+                    <div id="col-8" class="col"></div>
+                    <div id="col-9" class="col"></div>
+                    <div id="col-10" class="col"></div>
+                    <div id="col-11" class="col"></div>
+                    <div id="col-12" class="col"></div>
+                    <div id="col-13" class="col"></div>
+                    <div id="col-14" class="col"></div>
+                    <div id="col-15" class="col"></div>
+                    <div id="col-16" class="col"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
