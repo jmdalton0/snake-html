@@ -53,6 +53,7 @@ let score = SCORE_START;
 const POINTS_PER_FOOD = 150;
 
 let direction = 'e'; // direction of movement
+let inputs = []; // stack of user key strokes
 let snake = []; // each pixel of snake's body
 let food = []; // coords of food
 
@@ -126,6 +127,18 @@ function eat(x, y) {
 function tick() {
     let x = snake[0][0];
     let y = snake[0][1];
+    let newDirection = inputs.shift();
+    if (newDirection) {
+        if (
+            direction == 'n' && newDirection != 's' ||
+            direction == 's' && newDirection != 'n' ||
+            direction == 'e' && newDirection != 'w' ||
+            direction == 'w' && newDirection != 'e'
+        ) {
+            direction = newDirection;
+        }
+    }
+
     if (direction == 'n') {
         if (y == 1) {
             y = 16;
@@ -156,38 +169,41 @@ function tick() {
     if (ate) {
         blink(getHead()[0], getHead()[1], PINK);
     }
-    block = false;
 }
 
 function initControls() {
     document.onkeydown = (key) => {
         if (!block) {
             key = key.key || key.keyCode;
-            if (key == 'ArrowUp') {
-                if (direction != 's') direction = 'n';
-            } else if (key == 'ArrowDown') {
-                if (direction != 'n') direction = 's';
-            } else if (key == 'ArrowRight') {
-                if (direction != 'w') direction = 'e';
-            } else if (key == 'ArrowLeft') {
-                if (direction != 'e') direction = 'w';
+            if (key == '8') {
+                inputs.push('n');
+            } else if (key == '5') {
+                inputs.push('s');
+            } else if (key == '6') {
+                inputs.push('e');
+            } else if (key == '4') {
+                inputs.push('w');
             } else {
             }
-            block = true;
         }
     }
 }
 
 
 /* general game states */
-function start() {
+function controls() {
+    document.getElementById('menu').classList.add('hide');
+    document.getElementById('controls').classList.remove('hide');
+}
+
+function play() {
     if (!block) {
         block = true;
         clear();
         document.getElementById('screen').classList.add('hide-cursor');
         document.getElementById('game').classList.remove('hide');
-        document.getElementById('menu').classList.add('hide');
         document.getElementById('game-over').classList.add('hide');
+        document.getElementById('controls').classList.add('hide');
         setTimeout(() => {
             init();
         }, 2000);
@@ -231,6 +247,7 @@ function init() {
     setTimeout(() => {
         initControls();
         intervalID = setInterval(tick, TICK);
+        block = false;
     }, TICK * (totalTime += 10));
 }
 
@@ -267,12 +284,6 @@ function gameOver() {
     document.getElementById('game-over').classList.remove('hide');
     document.getElementById('game').classList.add('hide');
     document.getElementById('score').innerText = score;
-}
-
-function next() {
-    document.getElementById('menu').classList.remove('hide');
-    document.getElementById('game-over').classList.add('hide');
-    block = false;
 }
 
 document.addEventListener('DOMContentLoaded', () => {

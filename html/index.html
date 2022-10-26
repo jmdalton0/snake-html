@@ -19,12 +19,26 @@
     <main>
         <div id="screen">
             <div id="menu" class="message hide">
-                <button id="start" class="btn" onclick="start()">START</button>
+                <button id="start" class="btn" onclick="controls()">START</button>
+            </div>
+            <div id="controls" class="message hide">
+                <h2>CONTROLS</h2>
+                <p><span class="arrow">&uarr;</span></p>
+                <p><span class="control">8</span></p>
+                <p>
+                    <span class="arrow">&larr;</span>
+                    <span class="control">4</span>
+                    <span class="control">5</span>
+                    <span class="control">6</span>
+                    <span class="arrow">&rarr;</span>
+                </p>
+                <p><span class="arrow">&darr;</span></p>
+                <button id="controls-next" class="btn" onclick="play()">NEXT</button>
             </div>
             <div id="game-over" class="message hide">
                 <h2>GAME OVER</h2>
                 <h3>Your Score: <span id="score"></span></h3>
-                <button id="next" class="btn" onclick="next()">NEXT</button>
+                <button id="game-over-next" class="btn" onclick="play()">NEXT</button>
             </div>
             <div id="game" class="hide">
                 <div id="row-1" class="row">

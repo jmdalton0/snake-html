@@ -29,6 +29,10 @@ h3 {
     color: var(--teal-dark);
 }
 
+p {
+    font-size: 8em;
+}
+
 a {
     color: var(--black);
 }
@@ -81,7 +85,7 @@ main {
     align-items: center;
     width: 100%;
     height: 100%;
-    transition: opacity 1.5s ease-in;
+    transition: opacity 1s ease-in;
     z-index: 1;
 }
 
@@ -135,4 +139,12 @@ main {
     flex-direction: column;
     width: calc(100% / var(--dim));
     height: 100%;
+}
+
+.arrow {
+    color: var(--teal-dark);
+}
+
+.control {
+    color: var(--teal);
 }
