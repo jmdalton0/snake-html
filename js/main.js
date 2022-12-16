@@ -187,6 +187,44 @@ function initControls() {
             }
         }
     }
+
+    let xDown = null;
+    let yDown = null;
+
+    document.addEventListener('touchstart', (e) => {
+        xDown = e.touches[0].screenX;
+        yDown = e.touches[0].screenY;
+    }, false);
+
+    document.addEventListener('touchmove', (e) => {
+        xUp = e.touches[0].screenX;
+        yUp = e.touches[0].screenY;
+    }, false);
+
+    document.addEventListener('touchend', (e) => {
+        if (xDown && yDown) {
+            xDelta = xDown - xUp;
+            yDelta = yDown - yUp;
+
+            if (Math.abs(xDelta) > Math.abs(yDelta)) {
+                if (xDelta > 0) {
+                    inputs.push('w');
+                } else {
+                    inputs.push('e');
+                }
+            } else {
+                if (yDelta > 0) {
+                    inputs.push('n');
+                } else {
+                    inputs.push('s');
+                }
+            }
+        }
+        console.log(xDelta);
+
+        xDown = null;
+        yDown = null;
+    }, false);
 }
 
 
