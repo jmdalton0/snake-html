@@ -21,4 +21,5 @@ window.addEventListener('resize', () => {
     }
 });
 
-window.dispatchEvent('resize');
+window.dispatchEvent(new Event('resize'));
+
