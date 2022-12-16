@@ -19,6 +19,11 @@ html {
     font-size: 1vh;
 }
 
+h1 {
+    font-size: 0;
+    color: transparent;
+}
+
 h2 {
     font-size: 8em;
     color: var(--teal);
@@ -50,10 +55,6 @@ body {
     background-position: center;
     width: 100vw;
     height: 100vh;
-}
-
-header {
-    color: transparent;
 }
 
 main {

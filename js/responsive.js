@@ -20,3 +20,5 @@ window.addEventListener('resize', () => {
         });
     }
 });
+
+window.dispatchEvent('resize');

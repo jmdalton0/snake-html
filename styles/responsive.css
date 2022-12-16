@@ -11,8 +11,13 @@
         font-size: 4em;
     }
 
+    body {
+        height: fit-content;
+    }
+
     main {
         width: 98%;
         padding: 10px;
+        margin-bottom: 6rem;
     }
 }
