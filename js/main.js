@@ -24,7 +24,30 @@ function blink(x, y, color) {
     on(x, y, color);
     setTimeout(() => {
         on(x, y, curColor);
-    }, TICK / 2);
+    }, tickDur / 2);
+}
+
+function blinkBacklight(color) {
+    let machine = document.querySelector('main');
+    if (color === TEAL) {
+        machine.classList.add('backlit-teal');
+        setTimeout(() => {
+            machine.classList.remove('backlit-teal');
+        }, 50);
+    } else {
+        machine.classList.add('backlit-pink');
+        setTimeout(() => {
+            machine.classList.remove('backlit-pink');
+        }, 50);
+    }
+}
+
+function blinkScoreCounter() {
+    let scoreCounter = document.getElementById('score-counter');
+    scoreCounter.classList.add('backlit-score');
+    setTimeout(() => {
+        scoreCounter.classList.remove('backlit-score');
+    }, 50);
 }
 
 function drawSnake() {
@@ -44,13 +67,13 @@ function drawSnake() {
 const LEN_START = 4;
 const X_START = 7;
 const Y_START = 8;
-const SCORE_START = 1000;
+const SCORE_START = 0;
 
 /* game state */
 let intervalID = null;
 let block = false; // do not allow keyboard input
 let score = SCORE_START;
-const POINTS_PER_FOOD = 150;
+const POINTS_PER_FOOD = 256;
 
 let direction = 'e'; // direction of movement
 let inputs = []; // stack of user key strokes
@@ -58,7 +81,8 @@ let snake = []; // each pixel of snake's body
 let food = []; // coords of food
 
 /* game tick duration */
-const TICK = 140;
+let TICK_DUR_START = 150;
+let tickDur = TICK_DUR_START;
 
 function clear() {
     clearInterval(intervalID);
@@ -115,7 +139,10 @@ function eat(x, y) {
     }
     addSeg(x, y);
     if (getHead()[0] === food[0] && getHead()[1] === food[1]) {
-        score += POINTS_PER_FOOD;
+        blinkBacklight(PINK);
+        tickDur -= 1;
+        clearInterval(intervalID);
+        intervalID = setInterval(tick, tickDur);
         spawnFood();
         return true;
     } else {
@@ -190,6 +217,8 @@ function initControls() {
 
     let xDown = null;
     let yDown = null;
+    let xUp = null;
+    let yUp = null;
 
     document.addEventListener('touchstart', (e) => {
         xDown = e.touches[0].screenX;
@@ -202,7 +231,7 @@ function initControls() {
     }, false);
 
     document.addEventListener('touchend', (e) => {
-        if (xDown && yDown) {
+        if (xDown && yDown && xUp && yUp) {
             xDelta = xDown - xUp;
             yDelta = yDown - yUp;
 
@@ -220,7 +249,6 @@ function initControls() {
                 }
             }
         }
-        console.log(xDelta);
 
         xDown = null;
         yDown = null;
@@ -255,7 +283,7 @@ function init() {
         setTimeout(() => {
             addSeg(X_START - LEN_START + i + 1, Y_START);
             drawSnake();
-        }, TICK * i);
+        }, tickDur * i);
     }
 
     setTimeout(() => {
@@ -264,13 +292,13 @@ function init() {
             blink(X_START, Y_START, TEAL_DARK);
             setTimeout(() => {
                 blink(X_START, Y_START, TEAL_DARK);
-            }, TICK);
-        }, TICK);
-    }, TICK * (totalTime += 10));
+            }, tickDur);
+        }, tickDur);
+    }, tickDur * (totalTime += 10));
 
     setTimeout(() => {
         placeFood(X_START + 5, Y_START);
-    }, TICK * (totalTime += 10));
+    }, tickDur * (totalTime += 10));
 
     setTimeout(() => {
         blink(X_START + 5, Y_START, PINK);
@@ -278,19 +306,22 @@ function init() {
             blink(X_START + 5, Y_START, PINK);
             setTimeout(() => {
                 blink(X_START + 5, Y_START, PINK);
-            }, TICK);
-        }, TICK);
-    }, TICK * (totalTime += 10));
+            }, tickDur);
+        }, tickDur);
+    }, tickDur * (totalTime += 10));
 
     setTimeout(() => {
         initControls();
-        intervalID = setInterval(tick, TICK);
+        intervalID = setInterval(tick, tickDur);
         block = false;
-    }, TICK * (totalTime += 10));
+    }, tickDur * (totalTime += 10));
 }
 
 function die() {
+    blinkBacklight(TEAL);
     clearInterval(intervalID);
+    tickDur = TICK_DUR_START;
+    document.getElementById('dead').classList.remove('hide');
 
     setTimeout(() => {
         blink(getHead()[0], getHead()[1], PINK);
@@ -298,27 +329,32 @@ function die() {
             blink(getHead()[0], getHead()[1], PINK);
             setTimeout(() => {
                 blink(getHead()[0], getHead()[1], PINK);
-            }, TICK);
-        }, TICK);
-    }, TICK);
+            }, tickDur);
+        }, tickDur);
+    }, tickDur);
 
     setTimeout(() => {
         for (let i = 1; i < snake.length; i++) {
             setTimeout(() => {
                 blink(snake[i][0], snake[i][1], PINK);
+                blinkScoreCounter();
+                blinkBacklight(PINK);
+                score += POINTS_PER_FOOD;
+                document.getElementById('score-counter').innerText = score;
                 setTimeout(() => {
                     off(snake[i][0], snake[i][1]);
-                }, TICK)
-            }, TICK * i);
+                }, tickDur)
+            }, tickDur * i);
         }
         setTimeout(() => {
             gameOver();
-        }, TICK * (snake.length + 10));
-    }, TICK * 10);
+        }, tickDur * (snake.length + 10));
+    }, tickDur * 10);
 }
 
 function gameOver() {
     document.getElementById('screen').classList.remove('hide-cursor');
+    document.getElementById('dead').classList.add('hide');
     document.getElementById('game-over').classList.remove('hide');
     document.getElementById('game').classList.add('hide');
     document.getElementById('score').innerText = score;

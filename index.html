@@ -37,10 +37,13 @@
                 <p><span class="arrow">&darr;</span></p>
                 <button id="controls-next" class="btn" onclick="play()">NEXT</button>
             </div>
+            <div id="dead" class="message hide">
+                <h2 id="score-counter"></h2>
+            </div>
             <div id="game-over" class="message hide">
                 <h2>GAME OVER</h2>
                 <h3>Your Score: <span id="score"></span></h3>
-                <button id="game-over-next" class="btn" onclick="play()">NEXT</button>
+                <button id="game-over-next" class="btn" onclick="play()">REPLAY</button>
             </div>
             <div id="game" class="hide">
                 <div id="row-1" class="row">

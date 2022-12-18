@@ -1,4 +1,8 @@
 @media (max-width: 768px) {
+    html {
+        font-size: 2vw;
+    }
+
     h2 {
         font-size: 4em;
     }
@@ -11,13 +15,9 @@
         font-size: 4em;
     }
 
-    body {
-        height: fit-content;
-    }
-
     main {
-        width: 98%;
+        width: 96%;
+        margin-top: 4rem;
         padding: 10px;
-        margin-bottom: 6rem;
     }
 }
