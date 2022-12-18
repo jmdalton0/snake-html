@@ -86,10 +86,12 @@ let tickDur = TICK_DUR_START;
 
 function clear() {
     clearInterval(intervalID);
-    snake = [];
-    food = [];
     score = SCORE_START;
     direction = 'e';
+    inputs = [];
+    snake = [];
+    food = [];
+    tickDur = TICK_DUR_START;
     document.getElementById('score-counter').innerText = 0;
     for (let i = 0; i < 16; i++) {
         for (let j = 0; j < 16; j++) {
@@ -224,15 +226,15 @@ function initControls() {
     document.addEventListener('touchstart', (e) => {
         xDown = e.touches[0].screenX;
         yDown = e.touches[0].screenY;
-    }, false);
+    });
 
     document.addEventListener('touchmove', (e) => {
         xUp = e.touches[0].screenX;
         yUp = e.touches[0].screenY;
-    }, false);
+    });
 
     document.addEventListener('touchend', (e) => {
-        if (xDown && yDown && xUp && yUp) {
+        if (!block && xDown && yDown && xUp && yUp) {
             xDelta = xDown - xUp;
             yDelta = yDown - yUp;
 
@@ -250,10 +252,7 @@ function initControls() {
                 }
             }
         }
-
-        xDown = null;
-        yDown = null;
-    }, false);
+    });
 }
 
 
@@ -312,15 +311,15 @@ function init() {
     }, tickDur * (totalTime += 10));
 
     setTimeout(() => {
-        initControls();
         intervalID = setInterval(tick, tickDur);
         block = false;
     }, tickDur * (totalTime += 10));
 }
 
 function die() {
-    blinkBacklight(TEAL);
     clearInterval(intervalID);
+    off(food[0], food[1]);
+    blinkBacklight(TEAL);
     tickDur = TICK_DUR_START;
     document.getElementById('dead').classList.remove('hide');
 
@@ -365,4 +364,5 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         document.getElementById('menu').classList.toggle('hide');
     }, 2000);
+    initControls();
 });
