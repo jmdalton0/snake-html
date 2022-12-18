@@ -90,6 +90,7 @@ function clear() {
     food = [];
     score = SCORE_START;
     direction = 'e';
+    document.getElementById('score-counter').innerText = 0;
     for (let i = 0; i < 16; i++) {
         for (let j = 0; j < 16; j++) {
             off(i + 1, j + 1);
