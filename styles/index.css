@@ -2,13 +2,26 @@ html {
     --dim: 16;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 main {
-    width: 85rem;
+   width: 85rem;
     height: 85rem;
-    margin: auto;
+    margin: 1rem auto;
     padding: 4rem;
     border-width: 5px;
     border-radius: 30px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    width: 85rem;
+    margin: 1rem auto;
 }
 
 section {
@@ -21,6 +34,10 @@ section {
     height: 100%;
     transition: opacity 0.3s ease-in;
     z-index: 1;
+}
+
+img {
+    height: 4em;
 }
 
 #screen {

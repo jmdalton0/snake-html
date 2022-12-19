@@ -2,6 +2,20 @@
     html {
         font-size: 2vw;
     }
+    
+    body {
+        justify-content: flex-start;
+    }
+    
+    main {
+        width: 96%;
+        margin-top: 4rem;
+        padding: 10px;
+    }
+
+    footer {
+        width: 96%;
+    }
 
     h2 {
         font-size: 4em;
@@ -13,11 +27,5 @@
 
     p {
         font-size: 4em;
-    }
-
-    main {
-        width: 96%;
-        margin-top: 4rem;
-        padding: 10px;
     }
 }

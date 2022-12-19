@@ -60,6 +60,10 @@ button {
     text-shadow: 0 0 10px var(--teal);
 }
 
+.link:hover {
+    opacity: 0.8;
+}
+
 .arrow {
     color: var(--teal-dark);
 }
