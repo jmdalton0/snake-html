@@ -1,0 +1,17 @@
+.row {
+    display: flex;
+    width: 100%;
+    height: calc(100% / var(--dim));
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% / var(--dim));
+    height: 100%;
+}
+
+.btn {
+    height: 40px;
+    font-size: 4em;
+}

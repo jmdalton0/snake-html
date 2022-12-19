@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Silkscreen", cursive;
+    border-style: solid;
+    border-width: 0;
+}
+
+html {
+    font-size: 1vmin;
+}
+
+body {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 0;
+}
+
+h2 {
+    font-size: 8em;
+}
+
+h3 {
+    font-size: 6em;
+}
+
+p {
+    font-size: 8em;
+}
+
+button {
+    border: 0;
+    cursor: none;
+}

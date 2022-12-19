@@ -1,0 +1,81 @@
+html {
+    --black: #000;
+    --black-light: #181818;
+
+    --grey: #222;
+    --grey-light: #333;
+
+    --teal: #1BDFEB;
+    --teal-dark: #0F8187;
+
+    --pink: #FF87FF;
+
+    --orange: #F78D0C;
+}
+
+body {
+    background: var(--black-light);
+}
+
+main {
+    background-color: var(--grey);
+    border-color: var(--grey-light);
+}
+
+h2 {
+    color: var(--teal);
+}
+
+h3 {
+    color: var(--teal-dark);
+}
+
+a {
+    color: var(--black);
+}
+
+button {
+    background-color: transparent;
+}
+
+#screen {
+    background-color: var(--black);
+    border-color: var(--grey-light);
+}
+
+#score-counter {
+    color: var(--pink);
+}
+
+#score {
+    color: var(--pink);
+}
+
+.btn {
+    color: var(--teal);
+}
+
+.btn:hover {
+    color: var(--pink);
+    text-shadow: 0 0 10px var(--teal);
+}
+
+.arrow {
+    color: var(--teal-dark);
+}
+
+.control {
+    color: var(--teal);
+}
+
+.backlit-pink {
+    box-shadow: 0 0 24px 4px var(--pink);
+}
+
+.backlit-teal {
+    box-shadow: 0 0 24px 4px var(--teal);
+}
+
+.backlit-text {
+    text-shadow: 0 0 10px var(--pink);
+}

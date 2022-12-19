@@ -5,25 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snake</title>
-    <link rel="stylesheet" href="./styles/main.css">
-    <link rel="stylesheet" href="./styles/responsive.css">
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles/mobile.css">
+    <link rel="stylesheet" href="./styles/layout.css">
+    <link rel="stylesheet" href="./styles/colors.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
     <script src="./js/main.js" defer></script>
-    <script src="./js/responsive.js" defer></script>
+    <script src="./js/mobile.js" defer></script>
 </head>
 <body>
     <header>
         <h1>Snake</h1>
     </header>
     
-    <main>
+    <main class="backlit">
         <div id="screen">
-            <div id="menu" class="message hide">
+            <section id="menu" class="hide">
                 <button id="start" class="btn" onclick="controls()">START</button>
-            </div>
-            <div id="controls" class="message hide">
+            </section>
+            <section id="controls" class="hide">
                 <h2>CONTROLS</h2>
                 <p><span class="arrow">&uarr;</span></p>
                 <p><span class="control">8</span></p>
@@ -36,16 +39,16 @@
                 </p>
                 <p><span class="arrow">&darr;</span></p>
                 <button id="controls-next" class="btn" onclick="play()">NEXT</button>
-            </div>
-            <div id="dead" class="message hide">
+            </section>
+            <section id="dead" class="hide">
                 <h2 id="score-counter"></h2>
-            </div>
-            <div id="game-over" class="message hide">
+            </section>
+            <section id="game-over" class="hide">
                 <h2>GAME OVER</h2>
                 <h3>Your Score: <span id="score"></span></h3>
                 <button id="game-over-next" class="btn" onclick="play()">REPLAY</button>
-            </div>
-            <div id="game" class="hide">
+            </section>
+            <section id="game" class="hide">
                 <div id="row-1" class="row">
                     <div id="col-1" class="col"></div>
                     <div id="col-2" class="col"></div>
@@ -334,7 +337,7 @@
                     <div id="col-15" class="col"></div>
                     <div id="col-16" class="col"></div>
                 </div>
-            </div>
+            </section>
         </div>
     </main>
 </body>
