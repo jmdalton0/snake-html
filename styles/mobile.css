@@ -8,7 +8,8 @@
     }
     
     main {
-        width: 96%;
+        width: 96vw;
+        height: 96vw;
         margin-top: 4rem;
         padding: 10px;
     }
@@ -27,5 +28,13 @@
 
     p {
         font-size: 4em;
+    }
+
+    .key-control {
+        display: none;
+    }
+
+    .swipe-control {
+        display: inline-block;
     }
 }

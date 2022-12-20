@@ -78,6 +78,10 @@ img {
     z-index: 0;
 }
 
+.swipe-control {
+    display: none;
+}
+
 .backlit {
     transition: box-shadow 1s ease;
 }
