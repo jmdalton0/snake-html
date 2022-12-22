@@ -21,7 +21,7 @@
         <h1>Snake</h1>
     </header>
     
-    <main class="backlit">
+    <main>
         <div id="screen">
             <section id="menu" class="hide">
                 <button id="start" class="btn" onclick="controls()">START</button>
@@ -41,15 +41,13 @@
                 <p><span class="arrow">&darr;</span></p>
                 <button id="controls-next" class="btn" onclick="play()">NEXT</button>
             </section>
-            <section id="dead" class="hide">
-                <h2 id="score-counter"></h2>
-            </section>
             <section id="game-over" class="hide">
                 <h2>GAME OVER</h2>
                 <h3>Your Score: <span id="score"></span></h3>
                 <button id="game-over-next" class="btn" onclick="play()">REPLAY</button>
             </section>
             <section id="game" class="hide">
+                <h2 id="score-counter"></h2>
                 <div id="row-1" class="row">
                     <div id="col-1" class="col"></div>
                     <div id="col-2" class="col"></div>

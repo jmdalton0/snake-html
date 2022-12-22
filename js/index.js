@@ -42,14 +42,6 @@ function blinkBacklight(color) {
     }
 }
 
-function blinkScoreCounter() {
-    let scoreCounter = document.getElementById('score-counter');
-    scoreCounter.classList.add('backlit-score');
-    setTimeout(() => {
-        scoreCounter.classList.remove('backlit-score');
-    }, 50);
-}
-
 function drawSnake() {
     for (let i = 0; i < snake.length; i++) {
         if (i % 2 == 0) {
@@ -92,7 +84,7 @@ function clear() {
     snake = [];
     food = [];
     tickDur = TICK_DUR_START;
-    document.getElementById('score-counter').innerText = 0;
+    document.getElementById('score-counter').innerText = "";
     for (let i = 0; i < 16; i++) {
         for (let j = 0; j < 16; j++) {
             off(i + 1, j + 1);
@@ -321,7 +313,6 @@ function die() {
     off(food[0], food[1]);
     blinkBacklight(TEAL);
     tickDur = TICK_DUR_START;
-    document.getElementById('dead').classList.remove('hide');
 
     setTimeout(() => {
         blink(getHead()[0], getHead()[1], PINK);
@@ -337,7 +328,6 @@ function die() {
         for (let i = 1; i < snake.length; i++) {
             setTimeout(() => {
                 blink(snake[i][0], snake[i][1], PINK);
-                blinkScoreCounter();
                 blinkBacklight(PINK);
                 score += POINTS_PER_FOOD;
                 document.getElementById('score-counter').innerText = score;
@@ -354,7 +344,6 @@ function die() {
 
 function gameOver() {
     document.getElementById('screen').classList.remove('hide-cursor');
-    document.getElementById('dead').classList.add('hide');
     document.getElementById('game-over').classList.remove('hide');
     document.getElementById('game').classList.add('hide');
     document.getElementById('score').innerText = score;

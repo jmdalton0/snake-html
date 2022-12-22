@@ -45,6 +45,7 @@ button {
 
 #score-counter {
     color: var(--pink);
+    text-shadow: 0 0 10px var(--pink);
 }
 
 #score {
@@ -74,12 +75,10 @@ button {
 
 .backlit-pink {
     box-shadow: 0 0 24px 4px var(--pink);
+    transition: none;
 }
 
 .backlit-teal {
     box-shadow: 0 0 24px 4px var(--teal);
-}
-
-.backlit-text {
-    text-shadow: 0 0 10px var(--pink);
+    transition: none;
 }

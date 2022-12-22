@@ -15,6 +15,7 @@ main {
     padding: 4rem;
     border-width: 5px;
     border-radius: 30px;
+    transition: box-shadow 1s ease;
 }
 
 footer {
@@ -65,7 +66,7 @@ img {
 }
 
 #score-counter {
-    transition: box-shadow 1s ease;
+    position: absolute;
 }
 
 .hide-cursor {
@@ -80,20 +81,4 @@ img {
 
 .swipe-control {
     display: none;
-}
-
-.backlit {
-    transition: box-shadow 1s ease;
-}
-
-.backlit-pink {
-    transition: none;
-}
-
-.backlit-teal {
-    transition: none;
-}
-
-.backlit-text {
-    transition: none;
 }
