@@ -45,7 +45,7 @@ button {
 
 #score-counter {
     color: var(--pink);
-    text-shadow: 0 0 10px var(--pink);
+    text-shadow: 0 0 10px var(--teal);
 }
 
 #score {
