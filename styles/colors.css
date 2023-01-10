@@ -5,12 +5,12 @@ html {
     --grey: #222;
     --grey-light: #333;
 
-    --teal: #1BDFEB;
-    --teal-dark: #0F8187;
+    --primary: #1BDFEB;
+    --primary-dark: #0F8187;
 
-    --pink: #FF87FF;
+    --secondary: #FF87FF;
 
-    --orange: #F78D0C;
+    --food: #F78D0C;
 }
 
 body {
@@ -23,11 +23,11 @@ main {
 }
 
 h2 {
-    color: var(--teal);
+    color: var(--primary);
 }
 
 h3 {
-    color: var(--teal-dark);
+    color: var(--primary-dark);
 }
 
 a {
@@ -44,21 +44,23 @@ button {
 }
 
 #score-counter {
-    color: var(--pink);
-    text-shadow: 0 0 10px var(--teal);
+    color: var(--secondary);
+    text-shadow: 0 0 10px var(--primary);
+    background-color: var(--black-light);
+    border-color: var(--grey-light);
 }
 
-#score {
-    color: var(--pink);
+#score-total {
+    color: var(--secondary);
+    text-shadow: 0 0 10px var(--secondary);
 }
 
 .btn {
-    color: var(--teal);
+    color: var(--primary);
 }
 
 .btn:hover {
-    color: var(--pink);
-    text-shadow: 0 0 10px var(--teal);
+    text-shadow: 0 0 10px var(--primary);
 }
 
 .link:hover {
@@ -66,19 +68,19 @@ button {
 }
 
 .arrow {
-    color: var(--teal-dark);
+    color: var(--primary-dark);
 }
 
 .control {
-    color: var(--teal);
+    color: var(--primary);
 }
 
-.backlit-pink {
-    box-shadow: 0 0 24px 4px var(--pink);
+.backlit-secondary {
+    box-shadow: 0 0 24px 4px var(--secondary);
     transition: none;
 }
 
-.backlit-teal {
-    box-shadow: 0 0 24px 4px var(--teal);
+.backlit-primary {
+    box-shadow: 0 0 24px 4px var(--primary);
     transition: none;
 }

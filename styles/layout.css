@@ -1,19 +1,17 @@
 .row {
     display: flex;
     width: 100%;
-    height: calc(100% / var(--dim));
+    height: calc(100% / 16);
 }
 
 .col {
     display: flex;
     flex-direction: column;
-    width: calc(100% / var(--dim));
+    width: calc(100% / 16);
     height: 100%;
 }
 
 .btn {
-    height: 40px;
     font-size: 4em;
-    border: 0;
-    cursor: none;
+    cursor: pointer;
 }
