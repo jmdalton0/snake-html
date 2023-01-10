@@ -5,10 +5,10 @@ html {
     --grey: #222;
     --grey-light: #333;
 
-    --primary: #1BDFEB;
-    --primary-dark: #0F8187;
+    --primary: #d176d6;
+    --primary-dark: #7a52cc;
 
-    --secondary: #FF87FF;
+    --secondary: #1BDFEB;
 
     --food: #F78D0C;
 }
@@ -67,12 +67,12 @@ button {
     opacity: 0.8;
 }
 
-.arrow {
-    color: var(--primary-dark);
-}
-
 .control {
     color: var(--primary);
+}
+
+.arrow {
+    color: var(--primary-dark);
 }
 
 .backlit-secondary {
