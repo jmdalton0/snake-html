@@ -26,6 +26,10 @@
         font-size: 3em;
     }
 
+    .control {
+        font-size: 4em;
+    }
+
     .key-control {
         display: none;
     }
